@@ -2,16 +2,20 @@ const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 let timerId = null;
 
+stopBtn.disabled = true;
+
 startBtn.addEventListener('click', () => {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
-    startBtn.setAttribute('disabled', 'disabled');
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
   }, 1000);
 });
 
 stopBtn.addEventListener('click', () => {
   clearInterval(timerId);
-  startBtn.removeAttribute('disabled');
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
 });
 
 function getRandomHexColor() {

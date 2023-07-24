@@ -49,10 +49,10 @@ const fp = flatpickr(dateTimePicker, options);
 
 function onStartBtnClick() {
   const selectDate = fp.parseDate(dateTimePicker.value);
+  startBtn.disabled = true;
+  dateTimePicker.disabled = true;
 
   const counterIntervalId = setInterval(() => {
-    startBtn.disabled = true;
-    dateTimePicker.disabled = true;
     const timeCounter = convertMs(selectDate - Date.now());
     daysValue.textContent = addLeadingZero(timeCounter.days);
     hoursValue.textContent = addLeadingZero(timeCounter.hours);
