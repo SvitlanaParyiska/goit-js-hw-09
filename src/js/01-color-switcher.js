@@ -3,12 +3,11 @@ const stopBtn = document.querySelector('[data-stop]');
 let timerId = null;
 
 stopBtn.disabled = true;
+stopBtn.disabled = false;
 
 startBtn.addEventListener('click', () => {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
-    startBtn.disabled = true;
-    stopBtn.disabled = false;
   }, 1000);
 });
 

@@ -9,6 +9,8 @@ const hoursValue = document.querySelector('[data-hours]');
 const minutesValue = document.querySelector('[data-minutes]');
 const secondsValue = document.querySelector('[data-seconds]');
 
+startBtn.disabled = true;
+
 startBtn.addEventListener('click', onStartBtnClick);
 
 function convertMs(ms) {
@@ -38,7 +40,6 @@ const options = {
     const selectedDate = selectedDates[0];
     if (selectedDate < new Date()) {
       Notiflix.Notify.failure('Please choose a date in the future!');
-      startBtn.disabled = true;
     } else {
       startBtn.disabled = false;
     }
