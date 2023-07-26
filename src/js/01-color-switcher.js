@@ -3,9 +3,10 @@ const stopBtn = document.querySelector('[data-stop]');
 let timerId = null;
 
 stopBtn.disabled = true;
-stopBtn.disabled = false;
 
 startBtn.addEventListener('click', () => {
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
@@ -22,3 +23,4 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+console.log('test');
